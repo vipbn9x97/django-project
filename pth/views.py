@@ -24,10 +24,10 @@ def getOutput(request):
     yieldRate = []
     data = []
     logger = logging.getLogger('django')
-    data = (pd.DataFrame(columns=['NULL'],
-                             index=pd.date_range('2022-03-22T07:30:00Z', '2022-03-22T19:30:00Z',
-                                                 freq='1H')).to_json())
-    logger.info(data)
+    # data = (pd.DataFrame(columns=['NULL'],
+    #                          index=pd.date_range('2022-03-22T07:30:00Z', '2022-03-22T19:30:00Z',
+    #                                              freq='1H')).to_json())
+    # logger.info(data)
     listTime = (pd.DataFrame(columns=['NULL'],
                              index=pd.date_range('2022-03-22T07:30:00Z', '2022-03-22T19:30:00Z',
                                                  freq='1H'))
