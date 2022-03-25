@@ -276,9 +276,19 @@
             type: 'GET',
             dataType: '',
             success: function (result) {
+                result.sort((a,b) => (Object.values(a) >= Object.values(b) ? -1: 1))
                 drawDefect(result);
             }
         })
+        {% comment %} $.ajax({
+            url: 'pth/issue1',
+            type: 'GET',
+            dataType: '',
+            success: function (result) {
+               
+               
+            }
+        }) {% endcomment %}
     })
     function showData(data) {
         if (data.pass == 0 && data.fail == 0) {

@@ -129,6 +129,15 @@ def getDefect(request):
             rows = cursor.fetchall()
             for row in rows:
                 data.append({row[0]: row[1]})
+        with connection.cursor() as cursor:
+            query = "select comp.name, count(pin.id) from tbl_pcb_component_pin pin \
+                    inner join tbl_component_result result on pin.component_result_id = result.id\
+                    inner join tbl_component comp on result.component_id = comp.id \
+                    where (result.time between '2022-03-22 07:30:00' and '2022-03-22 19:30:00')\
+                    group by comp.name"
+            cursor.execute(query)
+            rows = cursor.fetchall()
+            logger.info(rows)
     finally:
         cursor.close()
     return JsonResponse(data, safe=False)
