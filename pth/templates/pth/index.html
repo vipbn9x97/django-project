@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
     <title>Document</title>
 </head>
 
@@ -35,23 +33,29 @@
                         <i class="fa-solid fa-bars"></i>
                     </a>
                     <select style="min-width: 13vw;" class="me-3">
-                        <option selected>F57412A4120DC_2</option>
-                        <option>F57412A4120DC_2</option>
-                        <option>F57412A4120DC_2</option>
+                        <option selected>
+                            F57412A4120DC_2
+                        </option>
+                        <option>
+                            F57412A4120DC_2
+                        </option>
+                        <option>
+                            F57412A4120DC_2
+                        </option>
                     </select>
                     <a class="text-reset me-3">
                         <i class="fa-solid fa-image"></i>
                     </a>
                 </div>
                 <!-- Right elements -->
-
                 <!-- Center elements -->
                 <div class="col-md-4 d-none d-lg-block">
                     <div class="text-uppercase big-size text-center"
-                        style="font-family: 'Orbitron', sans-serif; font-size: 1.2rem">pth process monitoring</div>
+                        style="font-family: 'Orbitron', sans-serif; font-size: 1.2rem">
+                        pth process monitoring
+                    </div>
                 </div>
                 <!-- Center elements -->
-
                 <!-- Right elements -->
                 <div class="col-lg-4 d-flex justify-content-center justify-content-md-end align-items-center">
                     <i class="fa-solid fa-gear me-3"></i>
@@ -62,7 +66,7 @@
         </div>
     </header>
     <section>
-        <img src="{%static 'images/header1.png' %}" alt="" width="100%" height="90%">
+        <img src="{% static 'images/header1.png' %}" alt="" width="100%" height="90%">
     </section>
     <section>
         <img src="{% static '/images/header2mini.png' %}" alt="" width="100%">
@@ -76,25 +80,27 @@
                         <div class="col-md-6 col-lg-6" style="padding: 0;">
                             <!-- <img src="{% static 'images/flux_pressure.png' %}" class="d-flex" alt="">
                             <div style="color: aliceblue;">Flux Pressure</div>\
-                            <div style="color: aliceblue;">NA</div> -->
-
+<div style="color: aliceblue;">NA</div> -->
                             <div class="d-flex align-items-center">
                                 <div>
                                     <img src="{% static 'images/flux_pressure.png' %}" class="d-flex" alt=""
                                         style="width: 4vw;">
                                 </div>
                                 <div>
-                                    <span style="font-size: 0.7rem">Flux Pressure</span> <br>
+                                    <span style="font-size: 0.7rem">Flux Pressure</span>
+                                    <br>
                                     <span class="small pt-1" style="color: aliceblue; font-size: 0.7rem">12 (mpa)</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6" style="padding: 0;">
                             <div class="d-flex align-items-center">
-                                <div> <img src="{% static 'images/tank_preasure.png' %}" alt="" style="width: 4vw;">
+                                <div>
+                                    <img src="{% static 'images/tank_preasure.png' %}" alt="" style="width: 4vw;">
                                 </div>
                                 <div>
-                                    <span style="font-size: 0.7rem">Tank Pressure</span> <br>
+                                    <span style="font-size: 0.7rem">Tank Pressure</span>
+                                    <br>
                                     <span class="small pt-1" style="color: aliceblue; font-size: 0.7rem">12 (mpa)</span>
                                 </div>
                             </div>
@@ -105,7 +111,8 @@
                             <div class="d-flex align-items-center">
                                 <img src="{% static 'images/flux_runflow.png' %}" alt="" style="width: 4vw;">
                                 <div>
-                                    <span style="font-size: 0.7rem">Flux Runflow</span> <br>
+                                    <span style="font-size: 0.7rem">Flux Runflow</span>
+                                    <br>
                                     <span class="small pt-1 "
                                         style="color: aliceblue; font-size: 0.7rem">12(ml/min)</span>
                                 </div>
@@ -115,7 +122,8 @@
                             <div class="d-flex align-items-center">
                                 <img src="{% static 'images/gun_speed.png' %}" alt="" style="width: 4vw;">
                                 <div>
-                                    <span style="font-size: 0.7rem">Slide Spray Gun Speed</span> <br>
+                                    <span style="font-size: 0.7rem">Slide Spray Gun Speed</span>
+                                    <br>
                                     <span class="small pt-1 "
                                         style="color: aliceblue; font-size: 0.7rem">12(mm/s)</span>
                                 </div>
@@ -128,47 +136,43 @@
                 <div class="bg-image2 text-center" style="margin-top: -6vh;">
                     <div class="text-center" style="color: aliceblue; padding: 25px 10px">JBD-F12-1F-PTH 2</div>
                 </div>
-                <div class="text-center p-1"> 2022 - 03 - 15 12:00:00</div>
+                <div class="text-center p-1">2022 - 03 - 15 12:00:00</div>
                 <div class="row">
                     <div class="col-md-3 col-lg-3">
                         <div style="position: relative;" class="text-center">
-                            <img src="{%static 'images/output_yieldrate.png' %}" alt="" style="width: 5vw;">
-                            <div style="color: aliceblue; position:absolute; top: 50%;
-                            left: 50%; transform: translate(-50%, -50%); font-size: 0.75rem">
-                                234
+                            <img src="{% static 'images/output_yieldrate.png' %}" alt="" style="width: 5vw;">
+                            <div style="color: aliceblue; position:absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.75rem"
+                                id="pass_value">
                             </div>
                         </div>
-                        <div style="color: aliceblue;font-size: 0.75rem;" class="text-center pt-2"> Pass Qty</div>
+                        <div style="color: aliceblue;font-size: 0.75rem;" class="text-center pt-2">Pass Qty</div>
                     </div>
                     <div class="col-md-3 col-lg-3">
                         <div style="position: relative;" class="text-center">
-                            <img src="{%static 'images/output_yieldrate.png' %}" alt="" style="width: 5vw;">
-                            <div style="color: aliceblue; position:absolute; top: 50%;
-                            left: 50%; transform: translate(-50%, -50%); font-size: 0.75rem">
-                                234
+                            <img src="{% static 'images/output_yieldrate.png' %}" alt="" style="width: 5vw;">
+                            <div style="color: aliceblue; position:absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.75rem"
+                                id="fail_value">
                             </div>
                         </div>
-                        <div style="color: aliceblue;font-size: 0.75rem;" class="text-center pt-2"> Fail Qty</div>
+                        <div style="color: aliceblue;font-size: 0.75rem;" class="text-center pt-2">Fail Qty</div>
                     </div>
                     <div class="col-md-3 col-lg-3">
                         <div style="position: relative;" class="text-center">
-                            <img src="{%static 'images/output_yieldrate.png' %}" alt="" style="width: 5vw;">
-                            <div style="color: aliceblue; position:absolute; top: 50%;
-                            left: 50%; transform: translate(-50%, -50%);font-size: 0.75rem">
-                                234
+                            <img src="{% static 'images/output_yieldrate.png' %}" alt="" style="width: 5vw;">
+                            <div style="color: aliceblue; position:absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);font-size: 0.75rem"
+                                id="yieldrate_value">
                             </div>
                         </div>
-                        <div style="color: aliceblue;font-size: 0.75rem;" class="text-center pt-2"> Yieldrate(%)</div>
+                        <div style="color: aliceblue;font-size: 0.75rem;" class="text-center pt-2">Yieldrate(%)</div>
                     </div>
                     <div class="col-md-3 col-lg-3">
                         <div style="position: relative;" class="text-center">
-                            <img src="{%static 'images/output_yieldrate.png' %}" alt="" style="width: 5vw;">
-                            <div style="color: aliceblue; position:absolute; top: 50%;
-                            left: 50%; transform: translate(-50%, -50%);font-size: 0.75rem">
-                                234
+                            <img src="{% static 'images/output_yieldrate.png' %}" alt="" style="width: 5vw;">
+                            <div style="color: aliceblue; position:absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);font-size: 0.75rem"
+                                id="dpmo_value">
                             </div>
                         </div>
-                        <div style="color: aliceblue;font-size: 0.75rem;" class="text-center pt-2"> DPMO</div>
+                        <div style="color: aliceblue;font-size: 0.75rem;" class="text-center pt-2">DPMO</div>
                     </div>
                 </div>
             </div>
@@ -176,75 +180,78 @@
                 <div class="row ms-3 mt-2" style="margin-right: 0!important;">
                     <div class="col-md-1"></div>
                     <div class="bg-image1 col-md-10">
-                        <div id="yieldrate" style="min-height: 28vh"></div>
+                        <div id="yieldrate" style="min-height: 28vh">
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
         <div class="row" style="height: 27vh; width: 60%; margin: auto;">
             <div class="position-relative">
-                <img src="{%static 'images/shadow_line.png' %}" class="position-absolute"
+                <img src="{% static 'images/shadow_line.png' %}" class="position-absolute"
                     style="left: 0vw; width: 100%; right: 3vw; bottom: 0">
-                <img src="{%static 'images/befor_line_1.png' %}" class="position-absolute"
+                <img src="{% static 'images/befor_line_1.png' %}" class="position-absolute"
                     style="width: 13%; bottom: 6.6vh; left:5vw">
-                <img src="{%static 'images/flux_3.png' %}" alt="" class="position-absolute"
+                <img src="{% static 'images/flux_3.png' %}" alt="" class="position-absolute"
                     style="left: 12.7vw; bottom: 2.3vh; width: 8%">
-                <img src="{%static 'images/solder_4.png' %}" alt="" class="position-absolute"
+                <img src="{% static 'images/solder_4.png' %}" alt="" class="position-absolute"
                     style="left: 17.4vw; bottom: 3.5vh; width: 40%">
-                <img src="{%static 'images/pcb_5.png' %}" alt="" class="position-absolute"
+                <img src="{% static 'images/pcb_5.png' %}" alt="" class="position-absolute"
                     style="left: 41.4vw; bottom: 3.4vh; width: 5.7%">
-                <img src="{%static 'images/aoi_after_6.png' %}" alt="" class="position-absolute"
+                <img src="{% static 'images/aoi_after_6.png' %}" alt="" class="position-absolute"
                     style="left: 44.8vw; bottom: 3.4vh; width: 5.7%">
-                <img src="{%static 'images/after_line_7.png' %}" alt="" class="position-absolute"
+                <img src="{% static 'images/after_line_7.png' %}" alt="" class="position-absolute"
                     style="left: 48.2vw; bottom: 5.5vh; width: 5.7%">
-                <img src="{%static 'images/preheater_ngan.png' %}" alt="" class="position-absolute"
+                <img src="{% static 'images/preheater_ngan.png' %}" alt="" class="position-absolute"
                     style="left: 18.7vw; bottom: 14vh">
-                <span class="position-absolute" style="bottom: 20vh; font-size: 0.7rem; left: 17vw">Preheater 1 <br>
+                <span class="position-absolute" style="bottom: 20vh; font-size: 0.7rem; left: 17vw">Preheater 1
+                    <br>
                     <span style="color: aliceblue; padding: 0 1rem">12°C</span></span>
-                <img src="{%static 'images/preheater_dai.png' %}" alt="" class="position-absolute"
+                <img src="{% static 'images/preheater_dai.png' %}" alt="" class="position-absolute"
                     style="left: 23.7vw; bottom: 10vh">
-                <span class="position-absolute" style="bottom: 25.5vh; font-size: 0.7rem; left: 22.2vw">Preheater 2<br>
+                <span class="position-absolute" style="bottom: 25.5vh; font-size: 0.7rem; left: 22.2vw">Preheater 2
+                    <br>
                     <span style="color: aliceblue; padding: 0 1rem">12°C</span></span>
-                <img src="{%static 'images/preheater_ngan.png' %}" alt="" class="position-absolute"
+                <img src="{% static 'images/preheater_ngan.png' %}" alt="" class="position-absolute"
                     style="left: 27.7vw; bottom: 14vh">
-                <span class="position-absolute" style="bottom: 20vh; font-size: 0.7rem; left: 26.2vw">Preheater 3 <br>
+                <span class="position-absolute" style="bottom: 20vh; font-size: 0.7rem; left: 26.2vw">Preheater 3
+                    <br>
                     <span style="color: aliceblue; padding: 0 1rem">12°C</span></span>
-                <img src="{%static 'images/preheater_dai.png' %}" alt="" class="position-absolute"
+                <img src="{% static 'images/preheater_dai.png' %}" alt="" class="position-absolute"
                     style="left: 31.7vw; bottom: 10vh">
-                <span class="position-absolute" style="bottom: 25.5vh; font-size: 0.7rem; left: 30.2vw">Preheater 4<br>
+                <span class="position-absolute" style="bottom: 25.5vh; font-size: 0.7rem; left: 30.2vw">Preheater 4
+                    <br>
                     <span style="color: aliceblue; padding: 0 1rem">12°C</span></span>
-                <img src="{%static 'images/preheater_ngan.png' %}" alt="" class="position-absolute"
+                <img src="{% static 'images/preheater_ngan.png' %}" alt="" class="position-absolute"
                     style="left: 36.7vw; bottom: 14vh">
                 <span class="position-absolute" style="bottom: 20vh; font-size: 0.7rem; left: 35.2vw">Temp solder
-                    pot<br>
+                    pot
+                    <br>
                     <span style="color: aliceblue; padding: 0 1rem">12°C</span></span>
             </div>
-
         </div>
-
         <div class="row ms-3 mt-2" style="margin-right: 0!important;">
             <div class="col-md-4 col-lg-4">
                 <div class="bg-image1">
-                    <div id="defect" style="min-height: 28vh"></div>
+                    <div id="defect" style="min-height: 28vh">
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 col-lg-4">
                 <div class="bg-image1">
-                    <div id="issue1" style="min-height: 28vh"></div>
+                    <div id="issue1" style="min-height: 28vh">
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 col-lg-4">
                 <div class="bg-image1">
-                    <div id="issue2" style="min-height: 28vh"></div>
+                    <div id="issue2" style="min-height: 28vh">
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 </body>
-
-
-
 <script>
     $(function () {
         $.ajax({
@@ -252,12 +259,40 @@
             type: 'GET',
             dataType: '',
             success: function (result) {
-                console.log(result)
                 // var data = jQuery.parseJSON(result);
                 drawYieldrate(result);
             }
+        }) 
+        $.ajax({
+            url: 'pth/dpmo',
+            type: 'GET',
+            dataType: '',
+            success: function (result) {
+                showData(result);
+            }
+        })
+        $.ajax({
+            url: 'pth/error',
+            type: 'GET',
+            dataType: '',
+            success: function (result) {
+                drawDefect(result);
+            }
         })
     })
+    function showData(data) {
+        if (data.pass == 0 && data.fail == 0) {
+            $("#pass_value").html("NA");
+            $("#fail_value").html("NA");
+            $("#yieldrate_value").html("NA");
+            $("#dpmo_value").html("NA");
+        } else {
+            $("#pass_value").html(data.pass);
+            $("#fail_value").html(data.fail);
+            $("#yieldrate_value").html(data.yieldrate);
+            $("#dpmo_value").html(data.dpmo);
+        }
+    }
     $(function () {
         $('#issue2').highcharts({
             plotOptions: {
@@ -468,7 +503,19 @@
             }]
         });
     });
-    $(function () {
+    function drawDefect(data) {
+        insufficientSolderValue = 0;
+        noSolderValue = 0;
+        excessSolder = 0;
+        for(var i = 0; i < data.length; i++) {
+            if(Object.keys(data[i]) == 'Insufficient Solder'){
+                insufficientSolderValue = parseInt(Object.values(data[i]).toString())
+            } else if(Object.keys(data[i]) == 'No Solder'){
+                noSolderValue = parseInt(Object.values(data[i]).toString())
+            } else {
+                excessSolder = parseInt(Object.values(data[i]).toString())
+            }
+        }
         $('#defect').highcharts({
             chart: {
                 plotBackgroundColor: null,
@@ -531,24 +578,24 @@
                 },
                 data: [{
                     name: 'Insufficient solder',
-                    y: 48.1,
+                    y: insufficientSolderValue,
                     selected: true
                 }, {
                     name: 'No solder',
-                    y: 38.5,
+                    y: noSolderValue,
                     style: {
                         fontSize: '0.6rem'
                     }
                 }, {
                     name: 'Excess solder',
-                    y: 13.5,
+                    y: excessSolder,
                     style: {
                         fontSize: '0.6rem'
                     }
                 }]
             }]
         });
-    });
+    }
 
     function drawYieldrate(data) {
         $('#yieldrate').highcharts({
@@ -672,7 +719,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
     integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
     crossorigin="anonymous"></script>
-
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 </body>

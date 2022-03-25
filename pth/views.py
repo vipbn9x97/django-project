@@ -21,9 +21,10 @@ def index(request):
 def getOutput(request):
     passValue = []
     failValue = []
-    yieldRate = []
+    yieldrate = []
     data = []
-    logger = logging.getLogger('django')
+    failData = 0
+    passData = 0
     # data = (pd.DataFrame(columns=['NULL'],
     #                          index=pd.date_range('2022-03-22T07:30:00Z', '2022-03-22T19:30:00Z',
     #                                              freq='1H')).to_json())
@@ -31,37 +32,103 @@ def getOutput(request):
     listTime = (pd.DataFrame(columns=['NULL'],
                              index=pd.date_range('2022-03-22T07:30:00Z', '2022-03-22T19:30:00Z',
                                                  freq='1H'))
-                .between_time('07:30', '19:30')
+                .between_time('08:30', '19:30')
                 .index.strftime('%Y-%m-%d %H:%M:%S')
                 .tolist()
                 )
-    for index, time in enumerate(listTime):
-        try:
-            if index < len(listTime)-1:
-                with connection.cursor() as cursor:
-                    query = "select status, count(id) from tbl_pcb_result where (time between '{}' and '{}') group by status, time".format(
-                        time, listTime[index+1])
-                    cursor.execute(query)
-                    rows = cursor.fetchall()
-                if(len(rows) > 0):
-                    for row in rows:
-                        if(row[0] == 'FAIL'):
-                            failValue.append(row[1])
-                        if(row[0] == 'PASS'):
-                            passValue.append(row[1])
-                    if(len(rows) == 1):
-                        yieldRate.append(100)
+    # query = "select case when "
+    # for index, time in enumerate(listTime):
+    try:
+        logger = logging.getLogger('django')
+        with connection.cursor() as cursor:
+            query = "select date_bin('1 hour', Time, TIMESTAMP '2022-03-24 07:30:00') as Time, Status, count (*) as Total \
+                from tbl_pcb_result where time between '2022-03-22 07:30:00' and '2022-03-22 19:30:00' group by time, status order by time, status desc"
+            cursor.execute(query)
+            rows = cursor.fetchall()
+            for time in listTime:
+                count = 0
+                for row in rows:
+                    if(time == row[0].strftime('%Y-%m-%d %H:%M:%S')):
+                        count = 1
+                        if(row[1] == 'PASS'):
+                            passData = row[2]
+
+                        if(row[1] == 'FAIL'):
+                            failData = row[2]
+                if count == 1:
+                    yieldrate.append(passData/(failData + passData)*100)
+                    if passData != 0:
+                        passValue.append(passData)
+                        passData = 0
+                    elif passData == 0:
+                        passValue.append(0)
+                    if failData != 0:
+                        failValue.append(failData)
+                        failData = 0
+                    elif failData == 0:
                         failValue.append(0)
-                    else:
-                        yieldRate.append(rows[1][1]/(rows[0][1] + rows[1][1]) * 100)
                 else:
                     passValue.append(0)
                     failValue.append(0)
-                    yieldRate.append(0)
-        finally:
-            cursor.close()
-
+                    yieldrate.append(0)
+    finally:
+        cursor.close()
     data.append(passValue)
     data.append(failValue)
-    data.append(yieldRate)
+    data.append(yieldrate)
+    return JsonResponse(data, safe=False)
+
+
+@ api_view(['GET'])
+def getDPMO(request):
+    data = {}
+    try:
+        logger = logging.getLogger('django')
+        with connection.cursor() as cursor:
+            query = "select status, count(id) from tbl_pcb_component_pin where (time between '2022-03-22 07:30:00' and '2022-03-22 19:30:00') group by status"
+            cursor.execute(query)
+            rows = cursor.fetchall()
+        # logger.info(rows)
+            for row in rows:
+                if(row[0] == 'FAIL'):
+                    failPinValue = row[1]
+                else:
+                    passPinValue = row[1]
+        dpmo = (failPinValue/(failPinValue+passPinValue))*1000000
+        with connection.cursor() as cursor:
+            query = "select status,count(id) from tbl_pcb_result where (time between '2022-03-22 07:30:00' and '2022-03-22 19:30:00') group by status"
+            cursor.execute(query)
+            rows = cursor.fetchall()
+        for row in rows:
+            if(row[0] == 'FAIL'):
+                failResultValue = row[1]
+            else:
+                passResultValue = row[1]
+        yieldrate = (passResultValue/(failResultValue+passResultValue))*100
+        data["pass"] = passResultValue
+        data["fail"] = failResultValue
+        data["yieldrate"] = yieldrate
+        data["dpmo"] = dpmo
+    finally:
+        cursor.close()
+    return JsonResponse(data, safe=False)
+
+
+@ api_view(['GET'])
+def getDefect(request):
+    data = []
+    try:
+        logger = logging.getLogger('django')
+        with connection.cursor() as cursor:
+            query = "select error_code, count(*) from tbl_pcb_component_pin pin inner join \
+                tbl_component_result cresult on pin.component_result_id = cresult.id inner join\
+                tbl_pcb_result presult on cresult.pcb_result_id = presult.id where presult.status = 'FAIL'\
+                and pin.status ='FAIL' and (presult.time between '2022-03-22 07:30:00' and '2022-03-22 19:30:00')\
+                group by error_code"
+            cursor.execute(query)
+            rows = cursor.fetchall()
+            for row in rows:
+                data.append({row[0]: row[1]})
+    finally:
+        cursor.close()
     return JsonResponse(data, safe=False)
